@@ -362,10 +362,34 @@ I LOVEE YOUUU TOO MUCH MERII ALLUUUUUU 🥺💋
 
   </div>
 
-  <audio id="bgMusic" loop>
-    <source src="PIANO.mp3" type="audio/mpeg">
-  </audio>
+<audio id="bgMusic" loop>
+  <source src="PIANO.mp3" type="audio/mp3">
+</audio>
 
+<script>
+
+const music = document.getElementById("bgMusic");
+
+function startMusic() {
+
+  music.volume = 0.7;
+
+  music.play()
+    .then(() => {
+      console.log("Music started");
+    })
+    .catch((err) => {
+      console.log("Autoplay blocked:", err);
+    });
+
+  document.removeEventListener("click", startMusic);
+  document.removeEventListener("touchstart", startMusic);
+}
+
+document.addEventListener("click", startMusic);
+document.addEventListener("touchstart", startMusic);
+
+</script>
   <script>
 
     const heartsContainer = document.getElementById('hearts');
